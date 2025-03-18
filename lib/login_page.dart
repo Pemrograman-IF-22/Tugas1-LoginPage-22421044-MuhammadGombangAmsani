@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -64,7 +65,11 @@ class _LoginPageState extends State<LoginPage> {
                       debugPrint('Password: ${passwordController.text}');
 
                       if (_formKey.currentState!.validate()){
-
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => DashboardPage(
+                            email: emailController.text,
+                          ),
+                        ));
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
